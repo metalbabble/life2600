@@ -22,6 +22,12 @@ To make the source more manageable, it is split by bank into seperate files. A b
 
 BEFORE BUILDING, be sure the paths in the build script are correct for your system. The paths refer to the batari compiler, the bb linter, and the emulator to run the program. 
 
+## TODO
+
+* Allow the sample seed screens to be selectable
+* Optimize performance
+* git ignore file
+
 ## Explanation
 
 The main program loop in bank 3 does two things per cycle:
