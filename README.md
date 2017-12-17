@@ -1,16 +1,15 @@
 ## About
 
 A version of Conway's game of life for Atari 2600
-(https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
+[Learn More](https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
 
 Truth be told I wrote this because I was bored on an airplane. I also wanted to demonstrate my source-splitting technique that I used on my larger 2600 games like "Bit Quest" and "Sand Castles"
 
-Written by Brian Shea / metalbabble.com
+Written by Brian Shea / [metalbabble.com](http://www.metalbabble.com/)
 
 ## Rules of the game
 
-Conway's game of life rules...
-Taken from Wikipedia:
+Conway's game of life rules, taken from Wikipedia:
 
 * Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
 * Any live cell with two or three live neighbours lives on to the next generation.
