@@ -1,4 +1,4 @@
-------- FILE C:\Users\afloc\Dropbox\Projects\atari_src\life\bin\life.bas.asm LEVEL 1 PASS 3
+------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm LEVEL 1 PASS 3
       1  8400					      processor	6502
 ------- FILE vcs.h LEVEL 2 PASS 3
       0  8400 ????				      include	"vcs.h"
@@ -202,7 +202,7 @@
     198  8400 ????				      SEG
     199  8400 ????
     200  8400 ????						; EOF
-------- FILE C:\Users\afloc\Dropbox\Projects\atari_src\life\bin\life.bas.asm
+------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
 ------- FILE macro.h LEVEL 2 PASS 3
       0  8400 ????				      include	"macro.h"
       1  8400 ????						; MACRO.H
@@ -351,7 +351,7 @@
     144  8400 ????				      ENDM
     145  8400 ????
     146  8400 ????						; EOF
-------- FILE C:\Users\afloc\Dropbox\Projects\atari_src\life\bin\life.bas.asm
+------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
 ------- FILE DPCplus.h LEVEL 2 PASS 3
       0  8400 ????				      include	"DPCplus.h"
       1  8400 ????						; DPCplus.H - Display Processor Chip Plus Definitions
@@ -885,7 +885,7 @@
     529 U1080							; segments.
     530 U1080
     531  8400 ????				      SEG
-------- FILE C:\Users\afloc\Dropbox\Projects\atari_src\life\bin\life.bas.asm
+------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
 ------- FILE DPCplusbB.h LEVEL 2 PASS 3
       0  8400 ????				      include	"DPCplusbB.h"
       1 U00f5 ????				      SEG.U	vars
@@ -1096,7 +1096,7 @@
     205  8400 ????	       dd a5	   USERSTACK  =	STACKbegin + 256	; stack starts here and goes down!!!!
  DPC free RAM= 603
     206  8400 ????				      echo	"DPC free RAM=",($1000-(USERSTACK&$0FFF))d
-------- FILE C:\Users\afloc\Dropbox\Projects\atari_src\life\bin\life.bas.asm
+------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
 ------- FILE 2600basic_variable_redefs.h LEVEL 2 PASS 3
       0  8400 ????				      include	"2600basic_variable_redefs.h"
       1  8400 ????						; This file contains variable mapping and other information for the current project.
@@ -1120,7 +1120,7 @@
      19  8400 ????	       00 1c	   bankswitch =	28
      20  8400 ????	       1f f6	   bankswitch_hotspot =	$1FF6
      21  8400 ????	       00 02	   multisprite =	2
-------- FILE C:\Users\afloc\Dropbox\Projects\atari_src\life\bin\life.bas.asm
+------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
       7  0400					      ORG	$400
       8  0400					      RORG	$0
       9  0400					      incbin	DPCplus.arm
