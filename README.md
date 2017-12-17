@@ -1,7 +1,7 @@
 ## About
 
 A version of Conway's game of life for Atari 2600
-[https://en.wikipedia.org/wiki/Conway's_Game_of_Life]
+(https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
 
 Truth be told I wrote this because I was bored on an airplane. I also wanted to demonstrate my source-splitting technique that I used on my larger 2600 games like "Bit Quest" and "Sand Castles"
 
