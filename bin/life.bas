@@ -1,9 +1,9 @@
-;---------------------------------------
-;Conway's Game of Life - for Atari 2600
+;----------------------------------------
+;Life2600: based on Conway's Game of Life
 ;Written by Brian Shea / metalbabble.com
-;---------------------------------------
+;----------------------------------------
 ;START BANK 1 - kernel options and defs
-;---------------------------------------
+;----------------------------------------
 
  set kernel DPC+
  set tv ntsc
@@ -51,14 +51,14 @@ Init
 
 ;---Set up Colors---
  scorecolors:
-  $2E
-  $2C
-  $2A
-  $2A
-  $28
-  $28
-  $26
-  $26
+  $1E
+  $1C
+  $1A
+  $1A
+  $18
+  $18
+  $16
+  $16
 end
 
  ;--- Create initial generation ---
@@ -81,7 +81,7 @@ MainLoop
  ;--- Scan loop ---
  for y = 1 to MAXY
     for x = 1 to MAXX
-        ;debug --> pfpixel x y flip
+
         ;--- First, count the neighbors ---
         neighbors = 0
 
@@ -116,13 +116,13 @@ __deadCellChecks
 __doneChecking
 
         ;-- if not flipping, skip saving it to stack --
-        if !flipNeeded goto __endChecks
+        if !flipNeeded goto __doneStackPush
 
         ;-- save this coordinate on the stack -- 
         push x y
         stackCounter = stackCounter + 1
+__doneStackPush
 
-__endChecks
         gosub DrawUpdate
     next ;x
  next ;y

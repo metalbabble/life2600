@@ -4,7 +4,7 @@
 0.2skipL033fory          528e              (R )
 0.__deadCellChecks       5258              (R )
 0.__doneChecking         5264              (R )
-0.__endChecks            5275              (R )
+0.__doneStackPush        5275              (R )
 0.__livingCellChecks     523d                  
 0.condpart0              50bf                  
 0.condpart1              50eb                  
@@ -174,8 +174,8 @@
 8.CYCLES                 0002              (R )
 9.CYCLES                 0002              (R )
 _NUSIZ1                  00af              (R )
-A                        00d1              (R )
 a                        00d1              (R )
+A                        00d1              (R )
 A0                       0001                  
 A0s                      0002                  
 A1                       000d                  
@@ -474,8 +474,8 @@ HMP1                     0021              (R )
 Hmval                    1d90              (R )
 Hmval74                  1d98                  
 HorPosLoop               1e54              (R )
-I                        00d9              (R )
 i                        00d9              (R )
+I                        00d9              (R )
 inityloop                1912              (R )
 INPT0                    0008                  
 INPT1                    0009                  
@@ -489,8 +489,8 @@ j                        00da              (R )
 J                        00da              (R )
 JUMPTABLEHI              db14              (R )
 JUMPTABLELO              db08              (R )
-K                        00db              (R )
 k                        00db              (R )
+K                        00db              (R )
 kernel1                  1b36              (R )
 kernel10                 1c90              (R )
 kernel11                 1cbd              (R )

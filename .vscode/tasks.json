@@ -11,6 +11,15 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "mac build",
+            "type": "shell",
+            "command": "./build.sh",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         }
     ]
 }

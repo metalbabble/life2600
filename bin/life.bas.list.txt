@@ -3112,28 +3112,28 @@
    1509  212d		       8d 50 10 	      STA	DF0LOW
    1510  2130		       a9 0b		      lda	#((>scoredata) & $0f)
    1511  2132		       8d 68 10 	      STA	DF0HI
-   1512  2135		       a9 2e		      lda	#$2E
+   1512  2135		       a9 1e		      lda	#$1E
    1513  2137
    1514  2137		       8d 78 10 	      sta	DF0WRITE
-   1515  213a		       a9 2c		      lda	#$2C
+   1515  213a		       a9 1c		      lda	#$1C
    1516  213c
    1517  213c		       8d 78 10 	      sta	DF0WRITE
-   1518  213f		       a9 2a		      lda	#$2A
+   1518  213f		       a9 1a		      lda	#$1A
    1519  2141
    1520  2141		       8d 78 10 	      sta	DF0WRITE
-   1521  2144		       a9 2a		      lda	#$2A
+   1521  2144		       a9 1a		      lda	#$1A
    1522  2146
    1523  2146		       8d 78 10 	      sta	DF0WRITE
-   1524  2149		       a9 28		      lda	#$28
+   1524  2149		       a9 18		      lda	#$18
    1525  214b
    1526  214b		       8d 78 10 	      sta	DF0WRITE
-   1527  214e		       a9 28		      lda	#$28
+   1527  214e		       a9 18		      lda	#$18
    1528  2150
    1529  2150		       8d 78 10 	      sta	DF0WRITE
-   1530  2153		       a9 26		      lda	#$26
+   1530  2153		       a9 16		      lda	#$16
    1531  2155
    1532  2155		       8d 78 10 	      sta	DF0WRITE
-   1533  2158		       a9 26		      lda	#$26
+   1533  2158		       a9 16		      lda	#$16
    1534  215a
    1535  215a		       8d 78 10 	      sta	DF0WRITE
    1536  215d				   .
@@ -3864,16 +3864,16 @@
    2004  3264				   .
    2005  3264							;
    2006  3264
-   2007  3264				   .L058		;  if !flipNeeded goto __endChecks
+   2007  3264				   .L058		;  if !flipNeeded goto __doneStackPush
    2008  3264
    2009  3264		       a5 ea		      LDA	z
    2010  3266		       4a		      LSR
-   2011  3267					      if	((* - .__endChecks) < 127) && ((* - .__endChecks) > -128)
-   2012  3267		       90 0c		      bcc	.__endChecks
+   2011  3267					      if	((* - .__doneStackPush) < 127) && ((* - .__doneStackPush) > -128)
+   2012  3267		       90 0c		      bcc	.__doneStackPush
    2013  3269				  -	      else
-   2014  3269				  -	      bcs	.0skip__endChecks
-   2015  3269				  -	      jmp	.__endChecks
-   2016  3269				  -.0skip__endChecks
+   2014  3269				  -	      bcs	.0skip__doneStackPush
+   2015  3269				  -	      jmp	.__doneStackPush
+   2016  3269				  -.0skip__doneStackPush
    2017  3269					      endif
    2018  3269				   .
    2019  3269							;
@@ -3890,11 +3890,11 @@
    2030  3273				   .L060		;  stackCounter  =  stackCounter  +  1
    2031  3273
    2032  3273		       e6 d1		      INC	stackCounter
-   2033  3275				   .
-   2034  3275							;
+   2033  3275				   .__doneStackPush
+   2034  3275							; __doneStackPush
    2035  3275
-   2036  3275				   .__endChecks
-   2037  3275							; __endChecks
+   2036  3275				   .
+   2037  3275							;
    2038  3275
    2039  3275				   .L061		;  gosub DrawUpdate
    2040  3275

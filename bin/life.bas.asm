@@ -1509,28 +1509,28 @@ ret_point1
 	STA DF0LOW
 	lda #((>scoredata) & $0f)
 	STA DF0HI
-	lda #$2E
+	lda #$1E
 
 	sta DF0WRITE
-	lda #$2C
+	lda #$1C
 
 	sta DF0WRITE
-	lda #$2A
+	lda #$1A
 
 	sta DF0WRITE
-	lda #$2A
+	lda #$1A
 
 	sta DF0WRITE
-	lda #$28
+	lda #$18
 
 	sta DF0WRITE
-	lda #$28
+	lda #$18
 
 	sta DF0WRITE
-	lda #$26
+	lda #$16
 
 	sta DF0WRITE
-	lda #$26
+	lda #$16
 
 	sta DF0WRITE
 .
@@ -2004,16 +2004,16 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L058 ;  if !flipNeeded goto __endChecks
+.L058 ;  if !flipNeeded goto __doneStackPush
 
 	LDA z
 	LSR
- if ((* - .__endChecks) < 127) && ((* - .__endChecks) > -128)
-	bcc .__endChecks
+ if ((* - .__doneStackPush) < 127) && ((* - .__doneStackPush) > -128)
+	bcc .__doneStackPush
  else
-	bcs .0skip__endChecks
-	jmp .__endChecks
-.0skip__endChecks
+	bcs .0skip__doneStackPush
+	jmp .__doneStackPush
+.0skip__doneStackPush
  endif
 .
  ; 
@@ -2030,11 +2030,11 @@ start_bank2 ldx #$ff
 .L060 ;  stackCounter  =  stackCounter  +  1
 
 	INC stackCounter
+.__doneStackPush
+ ; __doneStackPush
+
 .
  ; 
-
-.__endChecks
- ; __endChecks
 
 .L061 ;  gosub DrawUpdate
 
