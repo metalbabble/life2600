@@ -174,8 +174,8 @@
 8.CYCLES                 0002              (R )
 9.CYCLES                 0002              (R )
 _NUSIZ1                  00af              (R )
-a                        00d1              (R )
 A                        00d1              (R )
+a                        00d1              (R )
 A0                       0001                  
 A0s                      0002                  
 A1                       000d                  
@@ -204,8 +204,8 @@ aux3                     00c5
 aux4                     00c7                  
 aux5                     00c8                  
 aux6                     00c9                  
-b                        00d2              (R )
 B                        00d2              (R )
+b                        00d2              (R )
 B0                       0003                  
 B1                       000f                  
 B2                       001b                  
@@ -267,8 +267,8 @@ CXM1P                    0001
 CXP0FB                   0002                  
 CXP1FB                   0003                  
 CXPPMM                   0007                  
-D                        00d4              (R )
 d                        00d4              (R )
+D                        00d4              (R )
 D1                       0006                  
 D1s                      0007                  
 D2                       0012                  
@@ -418,8 +418,8 @@ ENAM0                    001d              (R )
 ENAM1                    001e              (R )
 exit                     1b07                  
 exitkernel               1b04              (R )
-f                        00d6              (R )
 F                        00d6              (R )
+f                        00d6              (R )
 F1                       0009                  
 F1s                      000a                  
 F2                       0015                  
@@ -460,8 +460,8 @@ game                     1f90              (R )
 getbackearly             1ae2              (R )
 GRP0                     001b              (R )
 GRP1                     001c              (R )
-H                        00d8              (R )
 h                        00d8              (R )
+H                        00d8              (R )
 handwritten              0003                  
 HMBL                     0024              (R )
 HMCLR                    002b              (R )
@@ -485,8 +485,8 @@ INPT4                    000c
 INPT5                    000d                  
 interrupted              0004                  
 INTIM                    0284              (R )
-J                        00da              (R )
 j                        00da              (R )
+J                        00da              (R )
 JUMPTABLEHI              db14              (R )
 JUMPTABLELO              db08              (R )
 K                        00db              (R )
@@ -551,8 +551,8 @@ NUSIZ7                   00b5
 NUSIZ8                   00b6                  
 NUSIZ9                   00b7                  
 NUSIZREFP                db39              (R )
-O                        00df              (R )
 o                        00df              (R )
+O                        00df              (R )
 OVERSCAN_LINES           00a7              (R )
 overscan_time            0025                  
 p                        00e0              (R )
@@ -655,8 +655,8 @@ RWRITE0                  1071              (R )
 RWRITE1                  1072                  
 RWRITE2                  1073                  
 RWRITE3                  1074                  
-s                        00e3              (R )
 S                        00e3              (R )
+s                        00e3              (R )
 SAWTOOTH_WAVE            0088                  
 score                    00b8              (R )
 scorecolor               00eb              (R )
@@ -696,8 +696,8 @@ SWACNT                   0281
 SWBCNT                   0283                  
 SWCHA                    0280                  
 SWCHB                    0282                  
-T                        00e4              (R )
 t                        00e4              (R )
+T                        00e4              (R )
 T1024T                   0297                  
 temp1                    00cb              (R )
 temp2                    00cc              (R )
@@ -717,11 +717,11 @@ tiny                     0007
 tmp                      00d5              (R )
 topP1x                   0081              (R )
 TRIANGLE_WAVE            0087                  
-U                        00e5              (R )
 u                        00e5              (R )
+U                        00e5              (R )
 USERSTACK                dda5              (R )
-v                        00e6              (R )
 V                        00e6              (R )
+v                        00e6              (R )
 var0                     00ec              (R )
 var1                     00ed              (R )
 var2                     00ee              (R )
@@ -747,11 +747,11 @@ WAVEFORM1                105e
 WAVEFORM2                105f                  
 whimsey                  0006                  
 WSYNC                    0002              (R )
-X                        00e8              (R )
 x                        00e8              (R )
-y                        00e9              (R )
+X                        00e8              (R )
 Y                        00e9              (R )
-z                        00ea              (R )
+y                        00e9              (R )
 Z                        00ea              (R )
+z                        00ea              (R )
 Zeros32                  d081                  
 --- End of Symbol List.

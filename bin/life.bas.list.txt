@@ -1,4 +1,4 @@
-------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm LEVEL 1 PASS 3
+------- FILE bin/life.bas.asm LEVEL 1 PASS 3
       1  8400					      processor	6502
 ------- FILE vcs.h LEVEL 2 PASS 3
       0  8400 ????				      include	"vcs.h"
@@ -29,7 +29,7 @@
      25  8400 ????						;			    used for code assembly.
      26  8400 ????						; 1.04  12/NOV/2003	 Added TIA_BASE_WRITE_ADDRESS and TIA_BASE_READ_ADDRESS for
      27  8400 ????						;			 convenient disassembly/reassembly compatibility for hardware
-     28  8400 ????						;			 mirrored reading/writing differences.	This is more a
+     28  8400 ????						;			 mirrored reading/writing differences.	This is more a 
      29  8400 ????						;			 readability issue, and binary compatibility with disassembled
      30  8400 ????						;			 and reassembled sources.  Per Manuel Rotschkar's suggestion.
      31  8400 ????						; 1.03  12/MAY/2003	 Added SEG segment at end of file to fix old-code compatibility
@@ -71,7 +71,7 @@
      67  8400 ????						; for the mirrored ROM hardware registers.
      68  8400 ????
      69  8400 ????						; Usage: As per above, define the TIA_BASE_READ_ADDRESS and/or TIA_BASE_WRITE_ADDRESS
-     70  8400 ????						; using the -D command-line switch, as required.  If the addresses are not defined,
+     70  8400 ????						; using the -D command-line switch, as required.  If the addresses are not defined, 
      71  8400 ????						; they defaut to the TIA_BASE_ADDRESS.
      72  8400 ????
      73  8400 ????			  -	      IFNCONST	TIA_BASE_READ_ADDRESS
@@ -202,7 +202,7 @@
     198  8400 ????				      SEG
     199  8400 ????
     200  8400 ????						; EOF
-------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
+------- FILE bin/life.bas.asm
 ------- FILE macro.h LEVEL 2 PASS 3
       0  8400 ????				      include	"macro.h"
       1  8400 ????						; MACRO.H
@@ -234,13 +234,13 @@
      27  8400 ????						;
      28  8400 ????						; 1.02  14/JUN/2003	 - VERTICAL_SYNC macro added
      29  8400 ????						;			   (standardised macro for vertical synch code)
-     30  8400 ????						; 1.01  22/MAR/2003	 - SLEEP macro added.
+     30  8400 ????						; 1.01  22/MAR/2003	 - SLEEP macro added. 
      31  8400 ????						;			 - NO_ILLEGAL_OPCODES switch implemented
      32  8400 ????						; 1.0	22/MAR/2003		Initial release
      33  8400 ????
-     34  8400 ????						; Note: These macros use illegal opcodes.  To disable illegal opcode usage,
+     34  8400 ????						; Note: These macros use illegal opcodes.  To disable illegal opcode usage, 
      35  8400 ????						;   define the symbol NO_ILLEGAL_OPCODES (-DNO_ILLEGAL_OPCODES=1 on command-line).
-     36  8400 ????						;   If you do not allow illegal opcode usage, you must include this file
+     36  8400 ????						;   If you do not allow illegal opcode usage, you must include this file 
      37  8400 ????						;   *after* including VCS.H (as the non-illegal opcodes access hardware
      38  8400 ????						;   registers and require them to be defined first).
      39  8400 ????
@@ -284,7 +284,7 @@
      77  8400 ????						;-------------------------------------------------------------------------------
      78  8400 ????						; VERTICAL_SYNC
      79  8400 ????						; Original author: Manuel Polik
-     80  8400 ????						; Inserts the code required for a proper 3 scannline
+     80  8400 ????						; Inserts the code required for a proper 3 scannline 
      81  8400 ????						; vertical sync sequence
      82  8400 ????						;
      83  8400 ????						; Note: Alters the accumulator
@@ -351,7 +351,7 @@
     144  8400 ????				      ENDM
     145  8400 ????
     146  8400 ????						; EOF
-------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
+------- FILE bin/life.bas.asm
 ------- FILE DPCplus.h LEVEL 2 PASS 3
       0  8400 ????				      include	"DPCplus.h"
       1  8400 ????						; DPCplus.H - Display Processor Chip Plus Definitions
@@ -885,7 +885,7 @@
     529 U1080							; segments.
     530 U1080
     531  8400 ????				      SEG
-------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
+------- FILE bin/life.bas.asm
 ------- FILE DPCplusbB.h LEVEL 2 PASS 3
       0  8400 ????				      include	"DPCplusbB.h"
       1 U00f5 ????				      SEG.U	vars
@@ -1096,7 +1096,7 @@
     205  8400 ????	       dd a5	   USERSTACK  =	STACKbegin + 256	; stack starts here and goes down!!!!
  DPC free RAM= 603
     206  8400 ????				      echo	"DPC free RAM=",($1000-(USERSTACK&$0FFF))d
-------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
+------- FILE bin/life.bas.asm
 ------- FILE 2600basic_variable_redefs.h LEVEL 2 PASS 3
       0  8400 ????				      include	"2600basic_variable_redefs.h"
       1  8400 ????						; This file contains variable mapping and other information for the current project.
@@ -1120,7 +1120,7 @@
      19  8400 ????	       00 1c	   bankswitch =	28
      20  8400 ????	       1f f6	   bankswitch_hotspot =	$1FF6
      21  8400 ????	       00 02	   multisprite =	2
-------- FILE C:\Users\afloc\Source\Repos\life2600\bin\life.bas.asm
+------- FILE bin/life.bas.asm
       7  0400					      ORG	$400
       8  0400					      RORG	$0
       9  0400					      incbin	DPCplus.arm
@@ -1540,7 +1540,7 @@
     415  1a3f							;     ldy #$80
     416  1a3f							;     sty HMP0
     417  1a3f							;     sty HMP1
-    418  1a3f							;     sty HMM0
+    418  1a3f							;     sty HMM0 
     419  1a3f							;     sty HMM1
     420  1a3f							;     sty HMBL
     421  1a3f							; relocated code above prior to vblank, to allow for Cosmic Ark starfield
@@ -2367,7 +2367,7 @@
     879  1d56							;DF0DATA: COLUP0
     880  1d56							;DF1DATA: COLUP1
     881  1d56							;DF2DATAW: GRP0
-    882  1d56							;DF3DATA: GRP1
+    882  1d56							;DF3DATA: GRP1 
     883  1d56							;DF4DATA: 2lk lines until repos/HMP1
     884  1d56							;DF5DATA: low byte of repo kernels (xpos mod 15)
     885  1d56							;DF6DATA: High byte of repo kernels (x pos div 15)
@@ -2382,8 +2382,8 @@
     894  1d56							;DF7FRACDATA: HMP1
     895  1d56							;DF3FLAG: kernel exit loop ?? (use flags instead?)
     896  1d56							;DF0FLAG: ENAM0
-    897  1d56							;DF1FLAG: ENAM1
-    898  1d56							;DF3FLAG: ENABL
+    897  1d56							;DF1FLAG: ENAM1 
+    898  1d56							;DF3FLAG: ENABL 
     899  1d56
     900  1d56				   fetcher_address_table
     901  1d56				   kernello
@@ -2483,7 +2483,7 @@
     995  1e48							; so minus 64
     996  1e48		       e9 3f		      sbc	#63	;cc
     997  1e4a				   ksadjustdown
-    998  1e4a							; 209-255: add 160
+    998  1e4a							; 209-255: add 160 
     999  1e4a		       69 9f		      adc	#159	; cs
    1000  1e4c		       95 90		      sta	player1x,x
    1001  1e4e				   nostorep1
@@ -2740,7 +2740,7 @@
      19  1f65					      REPEND
    1185  1f65		       ae 0a 10 	      ldx	DF2DATA	;16
    1186  1f68		       ac 0d 10 	      ldy	DF5DATA	;20
-   1187  1f6b		       a9 0c		      lda	#<DF4DATA	;22
+   1187  1f6b		       a9 0c		      lda	#<DF4DATA	;22 
    1188  1f6d
    1189  1f6d		       86 1c		      stx	GRP1	;40
    1190  1f6f		       84 1b		      sty	GRP0	;43

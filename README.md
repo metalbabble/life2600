@@ -26,7 +26,6 @@ BEFORE BUILDING, be sure the paths in the build script are correct for your syst
 
 * Allow the sample seed screens to be selectable
 * Optimize performance
-* git ignore file
 
 ## Explanation
 
