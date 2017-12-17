@@ -51,14 +51,14 @@ Init
 
 ;---Set up Colors---
  scorecolors:
-  $1E
-  $1C
-  $1A
-  $1A
-  $18
-  $18
-  $16
-  $16
+  $2E
+  $2C
+  $2A
+  $2A
+  $28
+  $28
+  $26
+  $26
 end
 
  ;--- Create initial generation ---

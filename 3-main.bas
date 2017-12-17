@@ -13,7 +13,7 @@ MainLoop
  ;--- Scan loop ---
  for y = 1 to MAXY
     for x = 1 to MAXX
-        ;debug --> pfpixel x y flip
+
         ;--- First, count the neighbors ---
         neighbors = 0
 
@@ -48,13 +48,13 @@ __deadCellChecks
 __doneChecking
 
         ;-- if not flipping, skip saving it to stack --
-        if !flipNeeded goto __endChecks
+        if !flipNeeded goto __doneStackPush
 
         ;-- save this coordinate on the stack -- 
         push x y
         stackCounter = stackCounter + 1
+__doneStackPush
 
-__endChecks
         gosub DrawUpdate
     next ;x
  next ;y

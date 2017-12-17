@@ -3112,28 +3112,28 @@
    1509  212d		       8d 50 10 	      STA	DF0LOW
    1510  2130		       a9 0b		      lda	#((>scoredata) & $0f)
    1511  2132		       8d 68 10 	      STA	DF0HI
-   1512  2135		       a9 1e		      lda	#$1E
+   1512  2135		       a9 2e		      lda	#$2E
    1513  2137
    1514  2137		       8d 78 10 	      sta	DF0WRITE
-   1515  213a		       a9 1c		      lda	#$1C
+   1515  213a		       a9 2c		      lda	#$2C
    1516  213c
    1517  213c		       8d 78 10 	      sta	DF0WRITE
-   1518  213f		       a9 1a		      lda	#$1A
+   1518  213f		       a9 2a		      lda	#$2A
    1519  2141
    1520  2141		       8d 78 10 	      sta	DF0WRITE
-   1521  2144		       a9 1a		      lda	#$1A
+   1521  2144		       a9 2a		      lda	#$2A
    1522  2146
    1523  2146		       8d 78 10 	      sta	DF0WRITE
-   1524  2149		       a9 18		      lda	#$18
+   1524  2149		       a9 28		      lda	#$28
    1525  214b
    1526  214b		       8d 78 10 	      sta	DF0WRITE
-   1527  214e		       a9 18		      lda	#$18
+   1527  214e		       a9 28		      lda	#$28
    1528  2150
    1529  2150		       8d 78 10 	      sta	DF0WRITE
-   1530  2153		       a9 16		      lda	#$16
+   1530  2153		       a9 26		      lda	#$26
    1531  2155
    1532  2155		       8d 78 10 	      sta	DF0WRITE
-   1533  2158		       a9 16		      lda	#$16
+   1533  2158		       a9 26		      lda	#$26
    1534  215a
    1535  215a		       8d 78 10 	      sta	DF0WRITE
    1536  215d				   .

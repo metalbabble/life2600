@@ -294,28 +294,28 @@ ret_point1
 	STA DF0LOW
 	lda #((>scoredata) & $0f)
 	STA DF0HI
-	lda #$1E
+	lda #$2E
 
 	sta DF0WRITE
-	lda #$1C
+	lda #$2C
 
 	sta DF0WRITE
-	lda #$1A
+	lda #$2A
 
 	sta DF0WRITE
-	lda #$1A
+	lda #$2A
 
 	sta DF0WRITE
-	lda #$18
+	lda #$28
 
 	sta DF0WRITE
-	lda #$18
+	lda #$28
 
 	sta DF0WRITE
-	lda #$16
+	lda #$26
 
 	sta DF0WRITE
-	lda #$16
+	lda #$26
 
 	sta DF0WRITE
 .
