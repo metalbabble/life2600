@@ -29,7 +29,7 @@ Init
 end
 
  ;--- Create initial generation ---
- gosub SeedRandom bank4
+ gosub SelectSeed bank4
 
  goto MainLoop bank3
 

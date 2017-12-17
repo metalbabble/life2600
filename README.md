@@ -24,8 +24,9 @@ BEFORE BUILDING, be sure the paths in the build script are correct for your syst
 
 ## TODO
 
-* Allow the sample seed screens to be selectable
+* Fix crash issue on Harmony cart
 * Optimize performance
+* Level select with reset switch is not fully functional
 
 ## Explanation
 

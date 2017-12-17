@@ -16,6 +16,7 @@
  dim chkY = d
  dim tmp = e
  dim drawCounter = f
+ dim startingSeed = g
  
  rem x, y are used for loops. z used for bits
  def flipNeeded = z{0}
@@ -25,7 +26,7 @@
  def MAXY = 20        ; max y
  def FILLVALUE = 50   ; higher value = more seed
  def RES = 32         ; playfield resolution
- def REDRAW_FRAME = 6 ; drawscreen every x frames
+ def REDRAW_FRAME = 4 ; drawscreen every x frames
 
  goto Init bank2
 
@@ -62,7 +63,7 @@ Init
 end
 
  ;--- Create initial generation ---
- gosub SeedRandom bank4
+ gosub SelectSeed bank4
 
  goto MainLoop bank3
 
@@ -148,6 +149,9 @@ __doneStackPush
 ;             possibly refactor.
 ;------------------------------------------------
 DrawUpdate
+ ;--- check for any reset switch ---
+ if switchreset then goto ChangeGameAndReset bank4
+
  ;--- only drawscreen every so many frames ---
  if drawCounter < REDRAW_FRAME then drawCounter = drawCounter + 1 else drawCounter = 0
  if drawCounter <> 0 then return
@@ -173,6 +177,15 @@ end
  bank 4
  temp1=temp1
 
+
+;---------------------------------
+; randomly creates initial generation
+;---------------------------------
+SelectSeed
+ on startingSeed gosub SeedRandom SeedGlider SeedExploders SeedMix
+ return
+
+
 ;---------------------------------
 ; randomly creates initial generation
 ;---------------------------------
@@ -184,6 +197,7 @@ SeedRandom
     drawscreen
  next ;y
  return
+
 
 ;---------------------------------
 ; Draws a sample "glider"
@@ -210,6 +224,7 @@ SeedGlider
 end
  return
 
+
 ;---------------------------------
 ; Draws sample "exploders"
 ;---------------------------------
@@ -234,6 +249,7 @@ SeedExploders
   ................................ 
 end
  return
+
 
 ;---------------------------------
 ; Draws a few sample objects
@@ -260,7 +276,17 @@ SeedMix
 end
  return
 
+
 ;---------------------------------
+; Handles reset switch
+;---------------------------------
+ChangeGameAndReset
+ if startingSeed < 3 then startingSeed = startingSeed + 1 else startingSeed = 0
+ pfclear
+ drawscreen
+ score = 0
+ gosub SelectSeed
+ goto MainLoop bank3;---------------------------------
 ; START BANK 5 AND 6 - not used
 ;---------------------------------
 

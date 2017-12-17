@@ -1,6 +1,8 @@
 ; This file contains variable mapping and other information for the current project.
 
 bscode_length = 32
+startingSeed = g
+ 
 drawCounter = f
  
 tmp = e

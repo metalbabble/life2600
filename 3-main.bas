@@ -80,6 +80,9 @@ __doneStackPush
 ;             possibly refactor.
 ;------------------------------------------------
 DrawUpdate
+ ;--- check for any reset switch ---
+ if switchreset then goto ChangeGameAndReset bank4
+
  ;--- only drawscreen every so many frames ---
  if drawCounter < REDRAW_FRAME then drawCounter = drawCounter + 1 else drawCounter = 0
  if drawCounter <> 0 then return

@@ -4,6 +4,15 @@
  bank 4
  temp1=temp1
 
+
+;---------------------------------
+; randomly creates initial generation
+;---------------------------------
+SelectSeed
+ on startingSeed gosub SeedRandom SeedGlider SeedExploders SeedMix
+ return
+
+
 ;---------------------------------
 ; randomly creates initial generation
 ;---------------------------------
@@ -15,6 +24,7 @@ SeedRandom
     drawscreen
  next ;y
  return
+
 
 ;---------------------------------
 ; Draws a sample "glider"
@@ -41,6 +51,7 @@ SeedGlider
 end
  return
 
+
 ;---------------------------------
 ; Draws sample "exploders"
 ;---------------------------------
@@ -65,6 +76,7 @@ SeedExploders
   ................................ 
 end
  return
+
 
 ;---------------------------------
 ; Draws a few sample objects
@@ -91,3 +103,14 @@ SeedMix
 end
  return
 
+
+;---------------------------------
+; Handles reset switch
+;---------------------------------
+ChangeGameAndReset
+ if startingSeed < 3 then startingSeed = startingSeed + 1 else startingSeed = 0
+ pfclear
+ drawscreen
+ score = 0
+ gosub SelectSeed
+ goto MainLoop bank3
