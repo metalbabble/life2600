@@ -1,9 +1,9 @@
-;---------------------------------------
-;Conway's Game of Life - for Atari 2600
+;----------------------------------------
+;Life2600: based on Conway's Game of Life
 ;Written by Brian Shea / metalbabble.com
-;---------------------------------------
+;----------------------------------------
 ;START BANK 1 - kernel options and defs
-;---------------------------------------
+;----------------------------------------
 
  set kernel DPC+
  set tv ntsc
