@@ -1,10 +1,12 @@
-;--------------------------------------
+;---------------------------------------
+;Conway's Game of Life - for Atari 2600
+;Written by Brian Shea / metalbabble.com
+;---------------------------------------
 ;START BANK 1 - kernel options and defs
-;--------------------------------------
+;---------------------------------------
 
  set kernel DPC+
  set tv ntsc
-;set kernel_options collision(player1,playfield)
  set smartbranching on
 
 ;---Define vars---
@@ -164,6 +166,7 @@ end
 
  drawscreen
  return
+
 ;---------------------------------
 ; START BANK 4 - extra subroutines
 ;---------------------------------
@@ -256,6 +259,7 @@ SeedMix
   ................................ 
 end
  return
+
 ;---------------------------------
 ; START BANK 5 AND 6 - not used
 ;---------------------------------

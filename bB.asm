@@ -11,12 +11,18 @@ game
 .
  ; 
 
-.L00 ;  set kernel DPC + 
-
-.L01 ;  set tv ntsc
+.
+ ; 
 
 .
  ; 
+
+.
+ ; 
+
+.L00 ;  set kernel DPC + 
+
+.L01 ;  set tv ntsc
 
 .L02 ;  set smartbranching on
 
@@ -1085,6 +1091,9 @@ ret_point3
 .
  ; 
 
+.
+ ; 
+
 .L080 ;  bank 4
 
  if ECHO3
@@ -1387,6 +1396,9 @@ ret_point7
 	beq *+5 ; if equal, do normal return
 	JMP BS_return
 	RTS
+.
+ ; 
+
 .
  ; 
 
