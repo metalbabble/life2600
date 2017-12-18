@@ -8,11 +8,11 @@
 MainLoop
 
  ;--- Reset stack position ---
- stackCounter = 0
+ stack 0 : stackCounter = 0
 
  ;--- Scan loop ---
- for y = 1 to MAXY
-    for x = 1 to MAXX
+ for y = 0 to MAXY
+    for x = 0 to MAXX
 
         ;--- First, count the neighbors ---
         neighbors = 0
@@ -60,11 +60,10 @@ __doneStackPush
  next ;y
 
  ; --- perform stack operations ---
- for tmp = stackCounter to 1 step -1
+ for tmp = 1 to stackCounter
         pull x y
         pfpixel x y flip
-
-        gosub DrawUpdate
+        gosub DrawUpdate        
  next
 
 ;--- Count the generations ---

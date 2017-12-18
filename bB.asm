@@ -63,11 +63,11 @@ game
 .
  ; 
 
-;.MAXX.  30.
-.L013 ;  def MAXX  =  30
+;.MAXX.  32.
+.L013 ;  def MAXX  =  32
 
-;.MAXY.  20.
-.L014 ;  def MAXY  =  20
+;.MAXY.  21.
+.L014 ;  def MAXY  =  21
 
 ;.FILLVALUE.  50.
 .L015 ;  def FILLVALUE  =  50
@@ -459,8 +459,12 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L034 ;  stackCounter  =  0
+.L034 ;  stack 0  :  stackCounter  =  0
 
+	lda #<(STACKbegin+0)
+	STA DF7LOW
+	lda #(>(STACKbegin+0)) & $0F
+	STA DF7HI
 	LDA #0
 	STA stackCounter
 .
@@ -469,14 +473,14 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L035 ;  for y  =  1 to MAXY
+.L035 ;  for y  =  0 to MAXY
 
-	LDA #1
+	LDA #0
 	STA y
 .L035fory
-.L036 ;  for x  =  1 to MAXX
+.L036 ;  for x  =  0 to MAXX
 
-	LDA #1
+	LDA #0
 	STA x
 .L036forx
 .
@@ -833,7 +837,7 @@ start_bank2 ldx #$ff
 .L064 ;  next
 
 	LDA x
-	CMP #30
+	CMP #32
 
 	INC x
  if ((* - .L036forx) < 127) && ((* - .L036forx) > -128)
@@ -846,7 +850,7 @@ start_bank2 ldx #$ff
 .L065 ;  next
 
 	LDA y
-	CMP #20
+	CMP #21
 
 	INC y
  if ((* - .L035fory) < 127) && ((* - .L035fory) > -128)
@@ -862,9 +866,9 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L066 ;  for tmp  =  stackCounter to 1 step -1
+.L066 ;  for tmp  =  1 to stackCounter
 
-	LDA stackCounter
+	LDA #1
 	STA tmp
 .L066fortmp
 .L067 ;  pull x y
@@ -888,9 +892,6 @@ start_bank2 ldx #$ff
 	STA DF0WRITE
 	lda #255
 	sta CALLFUNCTION
-.
- ; 
-
 .L069 ;  gosub DrawUpdate
 
  jsr .DrawUpdate
@@ -898,26 +899,16 @@ start_bank2 ldx #$ff
 .L070 ;  next
 
 	LDA tmp
-	CLC
-	ADC #-1
+	CMP stackCounter
 
- if ((* - .L066fortmp_failsafe) < 127) && ((* - .L066fortmp_failsafe) > -128)
-	bcc .L066fortmp_failsafe
- else
-	bcs .3skipL066fortmp_failsafe
-	jmp .L066fortmp_failsafe
-.3skipL066fortmp_failsafe
- endif
-	STA tmp
-	CMP #1
+	INC tmp
  if ((* - .L066fortmp) < 127) && ((* - .L066fortmp) > -128)
-	bcs .L066fortmp
+	bcc .L066fortmp
  else
-	bcc .4skipL066fortmp
+	bcs .3skipL066fortmp
 	jmp .L066fortmp
-.4skipL066fortmp
+.3skipL066fortmp
  endif
-.L066fortmp_failsafe
 .
  ; 
 
@@ -1315,15 +1306,15 @@ ongosub0
 .L091 ;  next
 
 	LDA x
-	CMP #30
+	CMP #32
 
 	INC x
  if ((* - .L089forx) < 127) && ((* - .L089forx) > -128)
 	bcc .L089forx
  else
-	bcs .5skipL089forx
+	bcs .4skipL089forx
 	jmp .L089forx
-.5skipL089forx
+.4skipL089forx
  endif
 .L092 ;  drawscreen
 
@@ -1346,15 +1337,15 @@ ret_point4
 .L093 ;  next
 
 	LDA y
-	CMP #20
+	CMP #21
 
 	INC y
  if ((* - .L088fory) < 127) && ((* - .L088fory) > -128)
 	bcc .L088fory
  else
-	bcs .6skipL088fory
+	bcs .5skipL088fory
 	jmp .L088fory
-.6skipL088fory
+.5skipL088fory
  endif
 .L094 ;  return
 

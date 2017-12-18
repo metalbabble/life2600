@@ -23,8 +23,8 @@
  def resetFlag = z{1}
 
 ;---Define constants---
- def MAXX = 30        ; max x
- def MAXY = 20        ; max y
+ def MAXX = 32        ; max x 32
+ def MAXY = 21        ; max y 21
  def FILLVALUE = 50   ; higher value = more seed
  def RES = 32         ; playfield resolution
  def REDRAW_FRAME = 4 ; drawscreen every x frames
@@ -78,11 +78,11 @@ end
 MainLoop
 
  ;--- Reset stack position ---
- stackCounter = 0
+ stack 0 : stackCounter = 0
 
  ;--- Scan loop ---
- for y = 1 to MAXY
-    for x = 1 to MAXX
+ for y = 0 to MAXY
+    for x = 0 to MAXX
 
         ;--- First, count the neighbors ---
         neighbors = 0
@@ -130,11 +130,10 @@ __doneStackPush
  next ;y
 
  ; --- perform stack operations ---
- for tmp = stackCounter to 1 step -1
+ for tmp = 1 to stackCounter
         pull x y
         pfpixel x y flip
-
-        gosub DrawUpdate
+        gosub DrawUpdate        
  next
 
 ;--- Count the generations ---
