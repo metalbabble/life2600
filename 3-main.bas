@@ -81,7 +81,8 @@ __doneStackPush
 ;------------------------------------------------
 DrawUpdate
  ;--- check for any reset switch ---
- if switchreset then goto ChangeGameAndReset bank4
+ if !switchreset && resetFlag then resetFlag = 0 ; clears flag when switch released
+ if switchreset && !resetFlag then goto ChangeGameAndReset bank4
 
  ;--- only drawscreen every so many frames ---
  if drawCounter < REDRAW_FRAME then drawCounter = drawCounter + 1 else drawCounter = 0
@@ -99,6 +100,6 @@ end
  DF0FRACINC = RES : DF1FRACINC = RES
  DF2FRACINC = RES : DF3FRACINC = RES
 
- drawscreen
+ drawscreen 
  return
 

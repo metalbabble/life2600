@@ -20,6 +20,7 @@
  
  rem x, y are used for loops. z used for bits
  def flipNeeded = z{0}
+ def resetFlag = z{1}
 
 ;---Define constants---
  def MAXX = 30        ; max x

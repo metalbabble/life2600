@@ -20,6 +20,7 @@
  
  rem x, y are used for loops. z used for bits
  def flipNeeded = z{0}
+ def resetFlag = z{1}
 
 ;---Define constants---
  def MAXX = 30        ; max x
@@ -52,14 +53,14 @@ Init
 
 ;---Set up Colors---
  scorecolors:
-  $1E
-  $1C
-  $1A
-  $1A
-  $18
-  $18
-  $16
-  $16
+  $9E
+  $9C
+  $9A
+  $9A
+  $98
+  $98
+  $96
+  $96
 end
 
  ;--- Create initial generation ---
@@ -150,7 +151,8 @@ __doneStackPush
 ;------------------------------------------------
 DrawUpdate
  ;--- check for any reset switch ---
- if switchreset then goto ChangeGameAndReset bank4
+ if !switchreset && resetFlag then resetFlag = 0 ; clears flag when switch released
+ if switchreset && !resetFlag then goto ChangeGameAndReset bank4
 
  ;--- only drawscreen every so many frames ---
  if drawCounter < REDRAW_FRAME then drawCounter = drawCounter + 1 else drawCounter = 0
@@ -168,7 +170,7 @@ end
  DF0FRACINC = RES : DF1FRACINC = RES
  DF2FRACINC = RES : DF3FRACINC = RES
 
- drawscreen
+ drawscreen 
  return
 
 ;---------------------------------
@@ -182,7 +184,7 @@ end
 ; randomly creates initial generation
 ;---------------------------------
 SelectSeed
- on startingSeed gosub SeedRandom SeedGlider SeedExploders SeedMix
+ on startingSeed gosub SeedRandom SeedGlider SeedExploders SeedMix SeedShip
  return
 
 
@@ -278,13 +280,43 @@ end
 
 
 ;---------------------------------
+; Draws a sample "space ship"
+;---------------------------------
+SeedShip
+ playfield:
+  ................................  
+  ................................
+  ................................  
+  ................................
+  ................................  
+  ................................
+  ..XXXX..........................  
+  .X...X..........................
+  .....X..........................  
+  .X..X...........................
+  ................................  
+  ................................
+  ................................  
+  ................................
+  ................................  
+  ................................
+  ................................  
+end
+ return
+
+
+;---------------------------------
 ; Handles reset switch
 ;---------------------------------
 ChangeGameAndReset
- if startingSeed < 3 then startingSeed = startingSeed + 1 else startingSeed = 0
+ resetFlag = 1
+ pop ; this was called from the DrawUpdate subroutine
+ startingSeed = startingSeed + 1
+ if startingSeed > 4 then startingSeed = 0
  pfclear
  drawscreen
  score = 0
+ stack 0 : stackCounter = 0
  gosub SelectSeed
  goto MainLoop bank3;---------------------------------
 ; START BANK 5 AND 6 - not used

@@ -18,14 +18,14 @@ Init
 
 ;---Set up Colors---
  scorecolors:
-  $1E
-  $1C
-  $1A
-  $1A
-  $18
-  $18
-  $16
-  $16
+  $9E
+  $9C
+  $9A
+  $9A
+  $98
+  $98
+  $96
+  $96
 end
 
  ;--- Create initial generation ---

@@ -1269,6 +1269,9 @@ game
 ;.flipNeeded.  z{0}.
 .L011 ;  def flipNeeded  =  z{0}
 
+;.resetFlag.  z{1}.
+.L012 ;  def resetFlag  =  z{1}
+
 .
  ; 
 
@@ -1276,24 +1279,24 @@ game
  ; 
 
 ;.MAXX.  30.
-.L012 ;  def MAXX  =  30
+.L013 ;  def MAXX  =  30
 
 ;.MAXY.  20.
-.L013 ;  def MAXY  =  20
+.L014 ;  def MAXY  =  20
 
 ;.FILLVALUE.  50.
-.L014 ;  def FILLVALUE  =  50
+.L015 ;  def FILLVALUE  =  50
 
 ;.RES.  32.
-.L015 ;  def RES  =  32
+.L016 ;  def RES  =  32
 
 ;.REDRAW_FRAME.  4.
-.L016 ;  def REDRAW_FRAME  =  4
+.L017 ;  def REDRAW_FRAME  =  4
 
 .
  ; 
 
-.L017 ;  goto Init bank2
+.L018 ;  goto Init bank2
 
  sta temp7
  lda #>(.Init-1)
@@ -1324,7 +1327,7 @@ game
 .
  ; 
 
-.L018 ;  bank 2
+.L019 ;  bank 2
 
  if ECHO1
  echo "    ",[(start_bank1 - *)]d , "bytes of ROM space left in bank 1")
@@ -1398,7 +1401,7 @@ HMdiv
   .byte 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9
   .byte 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10
   .byte 10,10,10,10,10,10,0,0,0
-.L019 ;  temp1 = temp1
+.L020 ;  temp1 = temp1
 
 	LDA temp1
 	STA temp1
@@ -1408,7 +1411,7 @@ HMdiv
 .Init
  ; Init
 
-.L020 ;  drawscreen
+.L021 ;  drawscreen
 
  sta temp7
  lda #>(ret_point1-1)
@@ -1426,7 +1429,7 @@ HMdiv
  ldx #1
  jmp BS_jsr
 ret_point1
-.L021 ;  pfclear
+.L022 ;  pfclear
 
 	lda #<C_function
 	sta DF0LOW
@@ -1438,7 +1441,7 @@ ret_point1
 	sta DF0WRITE
 	lda #255
 	sta CALLFUNCTION
-.L022 ;  AUDV0  =  0  :  AUDV1  =  0
+.L023 ;  AUDV0  =  0  :  AUDV1  =  0
 
 	LDA #0
 	STA AUDV0
@@ -1449,7 +1452,7 @@ ret_point1
 .
  ; 
 
-.L023 ;  a  =  0  :  b  =  0  :  c  =  0  :  d  =  0  :  e  =  0  :  f  =  0  :  g  =  0  :  h  =  0  :  i  =  0
+.L024 ;  a  =  0  :  b  =  0  :  c  =  0  :  d  =  0  :  e  =  0  :  f  =  0  :  g  =  0  :  h  =  0  :  i  =  0
 
 	LDA #0
 	STA a
@@ -1461,7 +1464,7 @@ ret_point1
 	STA g
 	STA h
 	STA i
-.L024 ;  j  =  0  :  k  =  0  :  l  =  0  :  m  =  0  :  n  =  0  :  o  =  0  :  p  =  0  :  q  =  0  :  r  =  0
+.L025 ;  j  =  0  :  k  =  0  :  l  =  0  :  m  =  0  :  n  =  0  :  o  =  0  :  p  =  0  :  q  =  0  :  r  =  0
 
 	LDA #0
 	STA j
@@ -1473,7 +1476,7 @@ ret_point1
 	STA p
 	STA q
 	STA r
-.L025 ;  s  =  0  :  t  =  0  :  u  =  0  :  v  =  0  :  w  =  0  :  x  =  0  :  y  =  0  :  z  =  0
+.L026 ;  s  =  0  :  t  =  0  :  u  =  0  :  v  =  0  :  w  =  0  :  x  =  0  :  y  =  0  :  z  =  0
 
 	LDA #0
 	STA s
@@ -1484,7 +1487,7 @@ ret_point1
 	STA x
 	STA y
 	STA z
-.L026 ;  var0  =  0  :  var1  =  0  :  var2  =  0  :  var3  =  0  :  var4  =  0
+.L027 ;  var0  =  0  :  var1  =  0  :  var2  =  0  :  var3  =  0  :  var4  =  0
 
 	LDA #0
 	STA var0
@@ -1492,7 +1495,7 @@ ret_point1
 	STA var2
 	STA var3
 	STA var4
-.L027 ;  var5  =  0  :  var6  =  0  :  var7  =  0  :  var8  =  0
+.L028 ;  var5  =  0  :  var6  =  0  :  var7  =  0  :  var8  =  0
 
 	LDA #0
 	STA var5
@@ -1505,34 +1508,34 @@ ret_point1
 .
  ; 
 
-.L028 ;  scorecolors:
+.L029 ;  scorecolors:
 
 	lda #<scoredata
 	STA DF0LOW
 	lda #((>scoredata) & $0f)
 	STA DF0HI
-	lda #$1E
+	lda #$9E
 
 	sta DF0WRITE
-	lda #$1C
+	lda #$9C
 
 	sta DF0WRITE
-	lda #$1A
+	lda #$9A
 
 	sta DF0WRITE
-	lda #$1A
+	lda #$9A
 
 	sta DF0WRITE
-	lda #$18
+	lda #$98
 
 	sta DF0WRITE
-	lda #$18
+	lda #$98
 
 	sta DF0WRITE
-	lda #$16
+	lda #$96
 
 	sta DF0WRITE
-	lda #$16
+	lda #$96
 
 	sta DF0WRITE
 .
@@ -1541,7 +1544,7 @@ ret_point1
 .
  ; 
 
-.L029 ;  gosub SelectSeed bank4
+.L030 ;  gosub SelectSeed bank4
 
  sta temp7
  lda #>(ret_point2-1)
@@ -1562,7 +1565,7 @@ ret_point2
 .
  ; 
 
-.L030 ;  goto MainLoop bank3
+.L031 ;  goto MainLoop bank3
 
  sta temp7
  lda #>(.MainLoop-1)
@@ -1587,7 +1590,7 @@ ret_point2
 .
  ; 
 
-.L031 ;  bank 3
+.L032 ;  bank 3
 
  if ECHO2
  echo "    ",[(start_bank2 - *)]d , "bytes of ROM space left in bank 2")
@@ -1652,7 +1655,7 @@ start_bank2 ldx #$ff
  repeat 129
  .byte 0
  repend
-.L032 ;  temp1 = temp1
+.L033 ;  temp1 = temp1
 
 	LDA temp1
 	STA temp1
@@ -1671,7 +1674,7 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L033 ;  stackCounter  =  0
+.L034 ;  stackCounter  =  0
 
 	LDA #0
 	STA stackCounter
@@ -1681,36 +1684,36 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L034 ;  for y  =  1 to MAXY
+.L035 ;  for y  =  1 to MAXY
 
 	LDA #1
 	STA y
-.L034fory
-.L035 ;  for x  =  1 to MAXX
+.L035fory
+.L036 ;  for x  =  1 to MAXX
 
 	LDA #1
 	STA x
-.L035forx
+.L036forx
 .
  ; 
 
 .
  ; 
 
-.L036 ;  neighbors  =  0
+.L037 ;  neighbors  =  0
 
 	LDA #0
 	STA neighbors
 .
  ; 
 
-.L037 ;  chkX  =  x  -  1
+.L038 ;  chkX  =  x  -  1
 
 	LDA x
 	SEC
 	SBC #1
 	STA chkX
-.L038 ;  if pfread ( chkX ,  y )  then neighbors  =  neighbors  +  1
+.L039 ;  if pfread ( chkX ,  y )  then neighbors  =  neighbors  +  1
 
 	lda #<C_function
 	sta DF0LOW
@@ -1725,17 +1728,17 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BNE .skipL038
+	BNE .skipL039
 .condpart0
 	INC neighbors
-.skipL038
-.L039 ;  chkY  =  y  -  1
+.skipL039
+.L040 ;  chkY  =  y  -  1
 
 	LDA y
 	SEC
 	SBC #1
 	STA chkY
-.L040 ;  if pfread ( x ,  chkY )  then neighbors  =  neighbors  +  1
+.L041 ;  if pfread ( x ,  chkY )  then neighbors  =  neighbors  +  1
 
 	lda #<C_function
 	sta DF0LOW
@@ -1750,17 +1753,17 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BNE .skipL040
+	BNE .skipL041
 .condpart1
 	INC neighbors
-.skipL040
-.L041 ;  chkX  =  x  +  1
+.skipL041
+.L042 ;  chkX  =  x  +  1
 
 	LDA x
 	CLC
 	ADC #1
 	STA chkX
-.L042 ;  if pfread ( chkX ,  y )  then neighbors  =  neighbors  +  1
+.L043 ;  if pfread ( chkX ,  y )  then neighbors  =  neighbors  +  1
 
 	lda #<C_function
 	sta DF0LOW
@@ -1775,17 +1778,17 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BNE .skipL042
+	BNE .skipL043
 .condpart2
 	INC neighbors
-.skipL042
-.L043 ;  chkY  =  y  +  1
+.skipL043
+.L044 ;  chkY  =  y  +  1
 
 	LDA y
 	CLC
 	ADC #1
 	STA chkY
-.L044 ;  if pfread ( x ,  chkY )  then neighbors  =  neighbors  +  1
+.L045 ;  if pfread ( x ,  chkY )  then neighbors  =  neighbors  +  1
 
 	lda #<C_function
 	sta DF0LOW
@@ -1800,14 +1803,14 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BNE .skipL044
+	BNE .skipL045
 .condpart3
 	INC neighbors
-.skipL044
+.skipL045
 .
  ; 
 
-.L045 ;  chkX  =  x  -  1  :  chkY  =  y  -  1
+.L046 ;  chkX  =  x  -  1  :  chkY  =  y  -  1
 
 	LDA x
 	SEC
@@ -1817,7 +1820,7 @@ start_bank2 ldx #$ff
 	SEC
 	SBC #1
 	STA chkY
-.L046 ;  if pfread ( chkX ,  chkY )  then neighbors  =  neighbors  +  1
+.L047 ;  if pfread ( chkX ,  chkY )  then neighbors  =  neighbors  +  1
 
 	lda #<C_function
 	sta DF0LOW
@@ -1832,11 +1835,11 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BNE .skipL046
+	BNE .skipL047
 .condpart4
 	INC neighbors
-.skipL046
-.L047 ;  chkX  =  x  -  1  :  chkY  =  y  +  1
+.skipL047
+.L048 ;  chkX  =  x  -  1  :  chkY  =  y  +  1
 
 	LDA x
 	SEC
@@ -1846,7 +1849,7 @@ start_bank2 ldx #$ff
 	CLC
 	ADC #1
 	STA chkY
-.L048 ;  if pfread ( chkX ,  chkY )  then neighbors  =  neighbors  +  1
+.L049 ;  if pfread ( chkX ,  chkY )  then neighbors  =  neighbors  +  1
 
 	lda #<C_function
 	sta DF0LOW
@@ -1861,11 +1864,11 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BNE .skipL048
+	BNE .skipL049
 .condpart5
 	INC neighbors
-.skipL048
-.L049 ;  chkX  =  x  +  1  :  chkY  =  y  -  1
+.skipL049
+.L050 ;  chkX  =  x  +  1  :  chkY  =  y  -  1
 
 	LDA x
 	CLC
@@ -1875,7 +1878,7 @@ start_bank2 ldx #$ff
 	SEC
 	SBC #1
 	STA chkY
-.L050 ;  if pfread ( chkX ,  chkY )  then neighbors  =  neighbors  +  1
+.L051 ;  if pfread ( chkX ,  chkY )  then neighbors  =  neighbors  +  1
 
 	lda #<C_function
 	sta DF0LOW
@@ -1890,11 +1893,11 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BNE .skipL050
+	BNE .skipL051
 .condpart6
 	INC neighbors
-.skipL050
-.L051 ;  chkX  =  x  +  1  :  chkY  =  y  +  1
+.skipL051
+.L052 ;  chkX  =  x  +  1  :  chkY  =  y  +  1
 
 	LDA x
 	CLC
@@ -1904,7 +1907,7 @@ start_bank2 ldx #$ff
 	CLC
 	ADC #1
 	STA chkY
-.L052 ;  if pfread ( chkX ,  chkY )  then neighbors  =  neighbors  +  1
+.L053 ;  if pfread ( chkX ,  chkY )  then neighbors  =  neighbors  +  1
 
 	lda #<C_function
 	sta DF0LOW
@@ -1919,22 +1922,22 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BNE .skipL052
+	BNE .skipL053
 .condpart7
 	INC neighbors
-.skipL052
+.skipL053
 .
  ; 
 
 .
  ; 
 
-.L053 ;  flipNeeded  =  0
+.L054 ;  flipNeeded  =  0
 
 	LDA z
 	AND #254
 	STA z
-.L054 ;  if !pfread ( x , y )  then goto __deadCellChecks
+.L055 ;  if !pfread ( x , y )  then goto __deadCellChecks
 
 	lda #<C_function
 	sta DF0LOW
@@ -1949,54 +1952,54 @@ start_bank2 ldx #$ff
 	lda #255
 	sta CALLFUNCTION
     LDA DF0DATA
-	BEQ .skipL054
+	BEQ .skipL055
 .condpart8
  jmp .__deadCellChecks
 
-.skipL054
+.skipL055
 .
  ; 
 
 .__livingCellChecks
  ; __livingCellChecks
 
-.L055 ;  if neighbors  <  2 then flipNeeded  =  1
+.L056 ;  if neighbors  <  2 then flipNeeded  =  1
 
 	LDA neighbors
 	CMP #2
-     BCS .skipL055
+     BCS .skipL056
 .condpart9
 	LDA z
 	ORA #1
 	STA z
-.skipL055
-.L056 ;  if neighbors  >  3 then flipNeeded  =  1
+.skipL056
+.L057 ;  if neighbors  >  3 then flipNeeded  =  1
 
 	LDA #3
 	CMP neighbors
-     BCS .skipL056
+     BCS .skipL057
 .condpart10
 	LDA z
 	ORA #1
 	STA z
-.skipL056
-.L057 ;  goto __doneChecking
+.skipL057
+.L058 ;  goto __doneChecking
 
  jmp .__doneChecking
 
 .__deadCellChecks
  ; __deadCellChecks
 
-.L058 ;  if neighbors  =  3 then flipNeeded  =  1
+.L059 ;  if neighbors  =  3 then flipNeeded  =  1
 
 	LDA neighbors
 	CMP #3
-     BNE .skipL058
+     BNE .skipL059
 .condpart11
 	LDA z
 	ORA #1
 	STA z
-.skipL058
+.skipL059
 .__doneChecking
  ; __doneChecking
 
@@ -2006,7 +2009,7 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L059 ;  if !flipNeeded goto __doneStackPush
+.L060 ;  if !flipNeeded goto __doneStackPush
 
 	LDA z
 	LSR
@@ -2023,13 +2026,13 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L060 ;  push x y
+.L061 ;  push x y
 
 	lda x
 	sta DF7PUSH
 	lda y
 	sta DF7PUSH
-.L061 ;  stackCounter  =  stackCounter  +  1
+.L062 ;  stackCounter  =  stackCounter  +  1
 
 	INC stackCounter
 .__doneStackPush
@@ -2038,35 +2041,35 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L062 ;  gosub DrawUpdate
+.L063 ;  gosub DrawUpdate
 
  jsr .DrawUpdate
 
-.L063 ;  next
+.L064 ;  next
 
 	LDA x
 	CMP #30
 
 	INC x
- if ((* - .L035forx) < 127) && ((* - .L035forx) > -128)
-	bcc .L035forx
+ if ((* - .L036forx) < 127) && ((* - .L036forx) > -128)
+	bcc .L036forx
  else
-	bcs .1skipL035forx
-	jmp .L035forx
-.1skipL035forx
+	bcs .1skipL036forx
+	jmp .L036forx
+.1skipL036forx
  endif
-.L064 ;  next
+.L065 ;  next
 
 	LDA y
 	CMP #20
 
 	INC y
- if ((* - .L034fory) < 127) && ((* - .L034fory) > -128)
-	bcc .L034fory
+ if ((* - .L035fory) < 127) && ((* - .L035fory) > -128)
+	bcc .L035fory
  else
-	bcs .2skipL034fory
-	jmp .L034fory
-.2skipL034fory
+	bcs .2skipL035fory
+	jmp .L035fory
+.2skipL035fory
  endif
 .
  ; 
@@ -2074,18 +2077,18 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L065 ;  for tmp  =  stackCounter to 1 step -1
+.L066 ;  for tmp  =  stackCounter to 1 step -1
 
 	LDA stackCounter
 	STA tmp
-.L065fortmp
-.L066 ;  pull x y
+.L066fortmp
+.L067 ;  pull x y
 
 	lda DF7DATA
 	sta y
 	lda DF7DATA
 	sta x
-.L067 ;  pfpixel x y flip
+.L068 ;  pfpixel x y flip
 
 	lda #<C_function
 	sta DF0LOW
@@ -2103,40 +2106,40 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L068 ;  gosub DrawUpdate
+.L069 ;  gosub DrawUpdate
 
  jsr .DrawUpdate
 
-.L069 ;  next
+.L070 ;  next
 
 	LDA tmp
 	CLC
 	ADC #-1
 
- if ((* - .L065fortmp_failsafe) < 127) && ((* - .L065fortmp_failsafe) > -128)
-	bcc .L065fortmp_failsafe
+ if ((* - .L066fortmp_failsafe) < 127) && ((* - .L066fortmp_failsafe) > -128)
+	bcc .L066fortmp_failsafe
  else
-	bcs .3skipL065fortmp_failsafe
-	jmp .L065fortmp_failsafe
-.3skipL065fortmp_failsafe
+	bcs .3skipL066fortmp_failsafe
+	jmp .L066fortmp_failsafe
+.3skipL066fortmp_failsafe
  endif
 	STA tmp
 	CMP #1
- if ((* - .L065fortmp) < 127) && ((* - .L065fortmp) > -128)
-	bcs .L065fortmp
+ if ((* - .L066fortmp) < 127) && ((* - .L066fortmp) > -128)
+	bcs .L066fortmp
  else
-	bcc .4skipL065fortmp
-	jmp .L065fortmp
-.4skipL065fortmp
+	bcc .4skipL066fortmp
+	jmp .L066fortmp
+.4skipL066fortmp
  endif
-.L065fortmp_failsafe
+.L066fortmp_failsafe
 .
  ; 
 
 .
  ; 
 
-.L070 ;  score  =  score  +  1
+.L071 ;  score  =  score  +  1
 
 	SED
 	CLC
@@ -2150,7 +2153,7 @@ start_bank2 ldx #$ff
 	ADC #$00
 	STA score
 	CLD
-.L071 ;  goto MainLoop
+.L072 ;  goto MainLoop
 
  jmp .MainLoop
 
@@ -2187,12 +2190,31 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L072 ;  if switchreset then goto ChangeGameAndReset bank4
+.L073 ;  if !switchreset  &&  resetFlag then resetFlag  =  0
 
  lda #1
  bit SWCHB
-	BNE .skipL072
+	BEQ .skipL073
 .condpart12
+	LDA z
+	AND #2
+	BEQ .skip12then
+.condpart13
+	LDA z
+	AND #253
+	STA z
+.skip12then
+.skipL073
+.L074 ;  if switchreset  &&  !resetFlag then goto ChangeGameAndReset bank4
+
+ lda #1
+ bit SWCHB
+	BNE .skipL074
+.condpart14
+	LDA z
+	AND #2
+	BNE .skip14then
+.condpart15
  sta temp7
  lda #>(.ChangeGameAndReset-1)
  pha
@@ -2204,38 +2226,7 @@ start_bank2 ldx #$ff
  pha
  ldx #4
  jmp BS_jsr
-.skipL072
-.
- ; 
-
-.
- ; 
-
-.L073 ;  if drawCounter  <  REDRAW_FRAME then drawCounter  =  drawCounter  +  1 else drawCounter  =  0
-
-	LDA drawCounter
-	CMP #4
-     BCS .skipL073
-.condpart13
-	INC drawCounter
- jmp .skipelse0
-.skipL073
-	LDA #0
-	STA drawCounter
-.skipelse0
-.L074 ;  if drawCounter  <>  0 then return
-
-	LDA drawCounter
-	CMP #0
-     BEQ .skipL074
-.condpart14
-	tsx
-	lda 2,x ; check return address
-	eor #(>*) ; vs. current PCH
-	and #$E0 ;  mask off all but top 3 bits
-	beq *+5 ; if equal, do normal return
-	JMP BS_return
-	RTS
+.skip14then
 .skipL074
 .
  ; 
@@ -2243,15 +2234,47 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L075 ;  pfcolors:
+.L075 ;  if drawCounter  <  REDRAW_FRAME then drawCounter  =  drawCounter  +  1 else drawCounter  =  0
+
+	LDA drawCounter
+	CMP #4
+     BCS .skipL075
+.condpart16
+	INC drawCounter
+ jmp .skipelse0
+.skipL075
+	LDA #0
+	STA drawCounter
+.skipelse0
+.L076 ;  if drawCounter  <>  0 then return
+
+	LDA drawCounter
+	CMP #0
+     BEQ .skipL076
+.condpart17
+	tsx
+	lda 2,x ; check return address
+	eor #(>*) ; vs. current PCH
+	and #$E0 ;  mask off all but top 3 bits
+	beq *+5 ; if equal, do normal return
+	JMP BS_return
+	RTS
+.skipL076
+.
+ ; 
+
+.
+ ; 
+
+.L077 ;  pfcolors:
 
 	LDA #<PFCOLS
 	STA DF0LOW
 	LDA #(>PFCOLS) & $0F
 	STA DF0HI
-	LDA #<playfieldcolorL075
+	LDA #<playfieldcolorL077
 	STA PARAMETER
-	LDA #((>playfieldcolorL075) & $0f) | (((>playfieldcolorL075) / 2) & $70)
+	LDA #((>playfieldcolorL077) & $0f) | (((>playfieldcolorL077) / 2) & $70)
 	STA PARAMETER
 	LDA #0
 	STA PARAMETER
@@ -2259,15 +2282,15 @@ start_bank2 ldx #$ff
 	STA PARAMETER
 	LDA #1
 	STA CALLFUNCTION
-.L076 ;  bkcolors:
+.L078 ;  bkcolors:
 
 	LDA #<BKCOLS
 	STA DF0LOW
 	LDA #(>BKCOLS) & $0F
 	STA DF0HI
-	LDA #<backgroundcolorL076
+	LDA #<backgroundcolorL078
 	STA PARAMETER
-	LDA #((>backgroundcolorL076) & $0f) | (((>backgroundcolorL076) / 2) & $70)
+	LDA #((>backgroundcolorL078) & $0f) | (((>backgroundcolorL078) / 2) & $70)
 	STA PARAMETER
 	LDA #0
 	STA PARAMETER
@@ -2278,17 +2301,17 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L077 ;  DF6FRACINC  =  1  :  DF4FRACINC  =  1
+.L079 ;  DF6FRACINC  =  1  :  DF4FRACINC  =  1
 
 	LDA #1
 	STA DF6FRACINC
 	STA DF4FRACINC
-.L078 ;  DF0FRACINC  =  RES  :  DF1FRACINC  =  RES
+.L080 ;  DF0FRACINC  =  RES  :  DF1FRACINC  =  RES
 
 	LDA #32
 	STA DF0FRACINC
 	STA DF1FRACINC
-.L079 ;  DF2FRACINC  =  RES  :  DF3FRACINC  =  RES
+.L081 ;  DF2FRACINC  =  RES  :  DF3FRACINC  =  RES
 
 	LDA #32
 	STA DF2FRACINC
@@ -2296,7 +2319,7 @@ start_bank2 ldx #$ff
 .
  ; 
 
-.L080 ;  drawscreen
+.L082 ;  drawscreen
 
  sta temp7
  lda #>(ret_point3-1)
@@ -2314,7 +2337,7 @@ start_bank2 ldx #$ff
  ldx #1
  jmp BS_jsr
 ret_point3
-.L081 ;  return
+.L083 ;  return
 
 	tsx
 	lda 2,x ; check return address
@@ -2335,7 +2358,7 @@ ret_point3
 .
  ; 
 
-.L082 ;  bank 4
+.L084 ;  bank 4
 
  if ECHO3
  echo "    ",[(start_bank3 - *)]d , "bytes of ROM space left in bank 3")
@@ -2400,7 +2423,7 @@ start_bank3 ldx #$ff
  repeat 129
  .byte 0
  repend
-.L083 ;  temp1 = temp1
+.L085 ;  temp1 = temp1
 
 	LDA temp1
 	STA temp1
@@ -2422,30 +2445,32 @@ start_bank3 ldx #$ff
 .SelectSeed
  ; SelectSeed
 
-.L084 ;  on startingSeed gosub SeedRandom SeedGlider SeedExploders SeedMix
+.L086 ;  on startingSeed gosub SeedRandom SeedGlider SeedExploders SeedMix SeedShip
 
 	lda #>(ongosub0-1)
 	PHA
 	lda #<(ongosub0-1)
 	PHA
 	LDX startingSeed
-	LDA .L084jumptablehi,x
+	LDA .L086jumptablehi,x
 	PHA
-	LDA .L084jumptablelo,x
+	LDA .L086jumptablelo,x
 	PHA
 	RTS
-.L084jumptablehi
+.L086jumptablehi
 	.byte >(.SeedRandom-1)
 	.byte >(.SeedGlider-1)
 	.byte >(.SeedExploders-1)
 	.byte >(.SeedMix-1)
-.L084jumptablelo
+	.byte >(.SeedShip-1)
+.L086jumptablelo
 	.byte <(.SeedRandom-1)
 	.byte <(.SeedGlider-1)
 	.byte <(.SeedExploders-1)
 	.byte <(.SeedMix-1)
+	.byte <(.SeedShip-1)
 ongosub0
-.L085 ;  return
+.L087 ;  return
 
 	tsx
 	lda 2,x ; check return address
@@ -2472,22 +2497,22 @@ ongosub0
 .SeedRandom
  ; SeedRandom
 
-.L086 ;  for y  =  1 to MAXY
+.L088 ;  for y  =  1 to MAXY
 
 	LDA #1
 	STA y
-.L086fory
-.L087 ;  for x  =  1 to MAXX
+.L088fory
+.L089 ;  for x  =  1 to MAXX
 
 	LDA #1
 	STA x
-.L087forx
-.L088 ;  if rand  <  FILLVALUE then pfpixel x y on
+.L089forx
+.L090 ;  if rand  <  FILLVALUE then pfpixel x y on
 
 	LDA rand
 	CMP #50
-     BCS .skipL088
-.condpart15
+     BCS .skipL090
+.condpart18
 	lda #<C_function
 	sta DF0LOW
 	lda #(>C_function) & $0F
@@ -2501,21 +2526,21 @@ ongosub0
 	STA DF0WRITE
 	lda #255
 	sta CALLFUNCTION
-.skipL088
-.L089 ;  next
+.skipL090
+.L091 ;  next
 
 	LDA x
 	CMP #30
 
 	INC x
- if ((* - .L087forx) < 127) && ((* - .L087forx) > -128)
-	bcc .L087forx
+ if ((* - .L089forx) < 127) && ((* - .L089forx) > -128)
+	bcc .L089forx
  else
-	bcs .5skipL087forx
-	jmp .L087forx
-.5skipL087forx
+	bcs .5skipL089forx
+	jmp .L089forx
+.5skipL089forx
  endif
-.L090 ;  drawscreen
+.L092 ;  drawscreen
 
  sta temp7
  lda #>(ret_point4-1)
@@ -2533,20 +2558,20 @@ ongosub0
  ldx #1
  jmp BS_jsr
 ret_point4
-.L091 ;  next
+.L093 ;  next
 
 	LDA y
 	CMP #20
 
 	INC y
- if ((* - .L086fory) < 127) && ((* - .L086fory) > -128)
-	bcc .L086fory
+ if ((* - .L088fory) < 127) && ((* - .L088fory) > -128)
+	bcc .L088fory
  else
-	bcs .6skipL086fory
-	jmp .L086fory
-.6skipL086fory
+	bcs .6skipL088fory
+	jmp .L088fory
+.6skipL088fory
  endif
-.L092 ;  return
+.L094 ;  return
 
 	tsx
 	lda 2,x ; check return address
@@ -2573,7 +2598,7 @@ ret_point4
 .SeedGlider
  ; SeedGlider
 
-.L093 ;  playfield:
+.L095 ;  playfield:
 
  ldy #17
 	LDA #<PF_data1
@@ -2594,7 +2619,7 @@ ret_point4
  ldx #1
  jmp BS_jsr
 ret_point5
-.L094 ;  return
+.L096 ;  return
 
 	tsx
 	lda 2,x ; check return address
@@ -2621,7 +2646,7 @@ ret_point5
 .SeedExploders
  ; SeedExploders
 
-.L095 ;  playfield:
+.L097 ;  playfield:
 
  ldy #17
 	LDA #<PF_data2
@@ -2642,7 +2667,7 @@ ret_point5
  ldx #1
  jmp BS_jsr
 ret_point6
-.L096 ;  return
+.L098 ;  return
 
 	tsx
 	lda 2,x ; check return address
@@ -2669,7 +2694,7 @@ ret_point6
 .SeedMix
  ; SeedMix
 
-.L097 ;  playfield:
+.L099 ;  playfield:
 
  ldy #17
 	LDA #<PF_data3
@@ -2690,7 +2715,55 @@ ret_point6
  ldx #1
  jmp BS_jsr
 ret_point7
-.L098 ;  return
+.L0100 ;  return
+
+	tsx
+	lda 2,x ; check return address
+	eor #(>*) ; vs. current PCH
+	and #$E0 ;  mask off all but top 3 bits
+	beq *+5 ; if equal, do normal return
+	JMP BS_return
+	RTS
+.
+ ; 
+
+.
+ ; 
+
+.
+ ; 
+
+.
+ ; 
+
+.
+ ; 
+
+.SeedShip
+ ; SeedShip
+
+.L0101 ;  playfield:
+
+ ldy #17
+	LDA #<PF_data4
+	LDX #((>PF_data4) & $0f) | (((>PF_data4) / 2) & $70)
+ sta temp7
+ lda #>(ret_point8-1)
+ pha
+ lda #<(ret_point8-1)
+ pha
+ lda #>(pfsetup-1)
+ pha
+ lda #<(pfsetup-1)
+ pha
+ lda temp7
+ pha
+ txa
+ pha
+ ldx #1
+ jmp BS_jsr
+ret_point8
+.L0102 ;  return
 
 	tsx
 	lda 2,x ; check return address
@@ -2717,19 +2790,28 @@ ret_point7
 .ChangeGameAndReset
  ; ChangeGameAndReset
 
-.L099 ;  if startingSeed  <  3 then startingSeed  =  startingSeed  +  1 else startingSeed  =  0
+.L0103 ;  resetFlag  =  1
 
-	LDA startingSeed
-	CMP #3
-     BCS .skipL099
-.condpart16
+	LDA z
+	ORA #2
+	STA z
+.L0104 ;  pop
+
+	pla
+	pla
+.L0105 ;  startingSeed  =  startingSeed  +  1
+
 	INC startingSeed
- jmp .skipelse1
-.skipL099
+.L0106 ;  if startingSeed  >  4 then startingSeed  =  0
+
+	LDA #4
+	CMP startingSeed
+     BCS .skipL0106
+.condpart19
 	LDA #0
 	STA startingSeed
-.skipelse1
-.L0100 ;  pfclear
+.skipL0106
+.L0107 ;  pfclear
 
 	lda #<C_function
 	sta DF0LOW
@@ -2741,12 +2823,12 @@ ret_point7
 	sta DF0WRITE
 	lda #255
 	sta CALLFUNCTION
-.L0101 ;  drawscreen
+.L0108 ;  drawscreen
 
  sta temp7
- lda #>(ret_point8-1)
+ lda #>(ret_point9-1)
  pha
- lda #<(ret_point8-1)
+ lda #<(ret_point9-1)
  pha
  lda #>(drawscreen-1)
  pha
@@ -2758,8 +2840,8 @@ ret_point7
  pha
  ldx #1
  jmp BS_jsr
-ret_point8
-.L0102 ;  score  =  0
+ret_point9
+.L0109 ;  score  =  0
 
 	LDA #$00
 	STA score+2
@@ -2767,11 +2849,19 @@ ret_point8
 	STA score+1
 	LDA #$00
 	STA score
-.L0103 ;  gosub SelectSeed
+.L0110 ;  stack 0  :  stackCounter  =  0
+
+	lda #<(STACKbegin+0)
+	STA DF7LOW
+	lda #(>(STACKbegin+0)) & $0F
+	STA DF7HI
+	LDA #0
+	STA stackCounter
+.L0111 ;  gosub SelectSeed
 
  jsr .SelectSeed
 
-.L0104 ;  goto MainLoop bank3
+.L0112 ;  goto MainLoop bank3
 
  sta temp7
  lda #>(.MainLoop-1)
@@ -2793,7 +2883,7 @@ ret_point8
 .
  ; 
 
-.L0105 ;  bank 5
+.L0113 ;  bank 5
 
  if ECHO4
  echo "    ",[(start_bank4 - *)]d , "bytes of ROM space left in bank 4")
@@ -2858,7 +2948,7 @@ start_bank4 ldx #$ff
  repeat 129
  .byte 0
  repend
-.L0106 ;  temp1 = temp1
+.L0114 ;  temp1 = temp1
 
 	LDA temp1
 	STA temp1
@@ -2868,7 +2958,7 @@ start_bank4 ldx #$ff
 .
  ; 
 
-.L0107 ;  bank 6
+.L0115 ;  bank 6
 
  if ECHO5
  echo "    ",[(start_bank5 - *)]d , "bytes of ROM space left in bank 5")
@@ -2933,7 +3023,7 @@ start_bank5 ldx #$ff
  repeat 129
  .byte 0
  repend
-.L0108 ;  temp1 = temp1
+.L0116 ;  temp1 = temp1
 	LDA temp1
 	STA temp1
  if ECHO6
@@ -3091,9 +3181,9 @@ FETCHER_BEGIN
  .byte 16 ; to zero-fill on boot
 ;bB.asm
 ; bB.asm file is split here
-playfieldcolorL075
+playfieldcolorL077
 	.byte  $3c
-backgroundcolorL076
+backgroundcolorL078
 	.byte  $00
 PF_data1
 	.byte %00000000
@@ -3295,6 +3385,75 @@ PF_data3
 	.byte %00000000
 	.byte %00000000
 	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+PF_data4
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00000000
+	.byte %00111100
+	.byte %01000100
+	.byte %00000100
+	.byte %01001000
 	.byte %00000000
 	.byte %00000000
 	.byte %00000000
