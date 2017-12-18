@@ -23,8 +23,8 @@
  def resetFlag = z{1}
 
 ;---Define constants---
- def MAXX = 32        ; max x 32
- def MAXY = 21        ; max y 21
+ def MAXX = 32        ; max x
+ def MAXY = 21        ; max y
  def FILLVALUE = 50   ; higher value = more seed
  def RES = 32         ; playfield resolution
  def REDRAW_FRAME = 4 ; drawscreen every x frames
