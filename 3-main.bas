@@ -12,7 +12,7 @@ MainLoop
 
  ;--- Scan loop ---
  for y = 0 to MAXY
-    for x = 0 to MAXX
+    for x = 1 to MAXX
 
         ;--- First, count the neighbors ---
         neighbors = 0
@@ -63,7 +63,17 @@ __doneStackPush
  for tmp = 1 to stackCounter
         pull x y
         pfpixel x y flip
-        gosub DrawUpdate        
+        pfcolors:
+        $3c
+end
+        bkcolors:
+        $00
+end
+        DF6FRACINC = 1 : DF4FRACINC = 1
+        DF0FRACINC = RES : DF1FRACINC = RES
+        DF2FRACINC = RES : DF3FRACINC = RES
+        drawscreen
+        ;gosub DrawUpdate        
  next
 
 ;--- Count the generations ---
