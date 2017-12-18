@@ -24,7 +24,7 @@ BEFORE BUILDING, be sure the paths in the build script are correct for your syst
 
 ## TODO
 
-* Fix crash issue on Harmony cart
+* Hack to fix harmony crash (works, but it's repetitive as currently written)
 * Optimize performance
 
 ## Explanation

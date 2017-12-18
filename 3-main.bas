@@ -63,17 +63,24 @@ __doneStackPush
  for tmp = 1 to stackCounter
         pull x y
         pfpixel x y flip
+        
+        ;--- Hack to fix harmony crash ---
+        ;TODO: this should just be "gosub DrawUpdate" but either the call
+        ;      or the switch read is causing a crash on the harmony hardware
+        ;      this is redundant, but it works!
+        if drawCounter < REDRAW_FRAME then drawCounter = drawCounter + 1 else drawCounter = 0
+        if drawCounter <> 0 then goto __endStackLoop
         pfcolors:
-        $3c
+         $3c
 end
-        bkcolors:
-        $00
+         bkcolors:
+         $00
 end
         DF6FRACINC = 1 : DF4FRACINC = 1
         DF0FRACINC = RES : DF1FRACINC = RES
         DF2FRACINC = RES : DF3FRACINC = RES
-        drawscreen
-        ;gosub DrawUpdate        
+        drawscreen 
+__endStackLoop
  next
 
 ;--- Count the generations ---
