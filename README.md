@@ -26,7 +26,6 @@ BEFORE BUILDING, be sure the paths in the build script are correct for your syst
 
 * Fix crash issue on Harmony cart
 * Optimize performance
-* Level select with reset switch is not fully functional
 
 ## Explanation
 
@@ -39,5 +38,6 @@ The main program loop in bank 3 does two things per cycle:
 
 ## Notes
 
+* Use RESET SWITCH (F2 in Stella emulator) to cycle through "seeds" or initial cell patterns
 * Uses DPC+ kernel for additional memory and stack
 * Recommend bB.1.1d.reveng40 for compilation, Stella for emulation, liniting is optional.
