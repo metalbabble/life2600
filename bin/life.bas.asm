@@ -1290,8 +1290,8 @@ game
 ;.RES.  32.
 .L016 ;  def RES  =  32
 
-;.REDRAW_FRAME.  4.
-.L017 ;  def REDRAW_FRAME  =  4
+;.REDRAW_FRAME.  2.
+.L017 ;  def REDRAW_FRAME  =  2
 
 .
  ; 
@@ -2125,7 +2125,7 @@ start_bank2 ldx #$ff
 .L069 ;  if drawCounter  <  REDRAW_FRAME then drawCounter  =  drawCounter  +  1 else drawCounter  =  0
 
 	LDA drawCounter
-	CMP #4
+	CMP #2
      BCS .skipL069
 .condpart12
 	INC drawCounter
@@ -2328,7 +2328,7 @@ ret_point3
 .L082 ;  if drawCounter  <  REDRAW_FRAME then drawCounter  =  drawCounter  +  1 else drawCounter  =  0
 
 	LDA drawCounter
-	CMP #4
+	CMP #2
      BCS .skipL082
 .condpart18
 	INC drawCounter

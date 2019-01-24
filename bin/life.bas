@@ -27,7 +27,7 @@
  def MAXY = 21        ; max y
  def FILLVALUE = 50   ; higher value = more seed
  def RES = 32         ; playfield resolution
- def REDRAW_FRAME = 4 ; drawscreen every x frames
+ def REDRAW_FRAME = 2 ; drawscreen every x frames
 
  goto Init bank2
 
